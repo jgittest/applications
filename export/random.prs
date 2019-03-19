@@ -1,0 +1,2331 @@
+<properties>
+  <properties class="linked-hash-map">
+    <entry>
+      <string>childInfo</string>
+      <table>
+        <format maxRecords="1" minRecords="1">
+          <fields>
+            <field description="Имя виджета" name="name" notReplicated="true" type="S">
+              <validators contentType="base64">HEweMSA1MB0cUh5cdyteXtCY0LzRjyDQvNC+0LbQtdGCINGB0L7QtNC10YDQttCw0YLRjCDRgtC+0LvRjNC60L4g0LvQsNGC0LjQvdGB0LrQuNC1INCx0YPQutCy0YssINGG0LjRhNGA0Ysg0Lgg0YHQuNC80LLQvtC70Ysg0L/QvtC00YfQtdGA0LrQuNCy0LDQvdC40Y8d</validators>
+              <help>Имя объекта и соответствующего контекста, необходимое для ссылки на данный контекст из других частей системы. Оно должно соответствовать соглашениям по именованию контекстов. ПРЕДУПРЕЖДЕНИЕ: изменение имени приведет к неработоспособности всех ссылок на объект.</help>
+              <defaultValue/>
+            </field>
+            <field description="Описание виджета" name="description" notReplicated="true" type="S">
+              <validators contentType="base64">HEweMCAxMDAdHFIeW15ccHtDbnRybH1dKl5e0J7Qv9C40YHQsNC90LjQtSDQvNC+0LbQtdGCINGB0L7QtNC10YDQttCw0YLRjCDRgtC+0LvRjNC60L4g0L/QtdGH0LDRgtC90YvQtSDRgdC40LzQstC+0LvRix0=</validators>
+              <help>Данное поле применяется для задания удобочитаемого для человека описания виджета.</help>
+              <defaultValue/>
+            </field>
+            <field description="Шаблон виджета" editor="text" name="template" type="S">
+              <editorOptions>xml</editorOptions>
+              <help>Данное поле содержит текст шаблона виджета в формате XML.</help>
+              <defaultValue>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;template&gt;
+    &lt;resources&gt;
+        &lt;resource id=&quot;&quot;/&gt;
+    &lt;/resources&gt;
+    &lt;view&gt;
+        &lt;root resourceID=&quot;&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+        &lt;/root&gt;
+    &lt;/view&gt;
+    &lt;bindings/&gt;
+    &lt;scripts/&gt;
+&lt;/template&gt;
+</defaultValue>
+            </field>
+            <field description="Тип" name="type" type="I">
+              <selectionValues>
+                <option description="Относительный">0</option>
+                <option description="Абсолютный">1</option>
+              </selectionValues>
+              <help>Данное поле определяет тип виджета, он может быть абсолютным и относительным. Абсолютные виджеты обычно обрабатывают и интегрируют данные, полученные из разных контекстов. Относительные виджеты предназначены для обработки данных из определенного контекста. Они служат для создания формы или пользовательского интерфейса, представляя данные устройства или системного ресурса. Относительные виджеты, обычно, запускаются из контекста, данные которого будут использоваться в виджете.</help>
+              <defaultValue>0</defaultValue>
+            </field>
+            <field description="Выражение пригодности" editor="expression" name="validityExpression" type="S">
+              <editorOptions contentType="base64">HEYeHBxjb250ZXh0HRxTHRxGHk4dHEEeGh0cRB7QmtC+0L3RgtC10LrRgdGCINC/0L4g0YPQvNC+0LvRh9Cw0L3QuNGOHR0cHHRhYmxlHRxUHRxGHk4dHEEeGh0cRB7QotCw0LHQu9C40YbQsCDQv9C+INGD0LzQvtC70YfQsNC90LjRjh0dHBxyZWZlcmVuY2VzHRxUHRxGHk4dHEEeHEYeHBxyZWZlcmVuY2UdHFMdHEEeHRxEHtCh0YHRi9C70LrQsB0dHBxkZXNjcmlwdGlvbh0cUx0cQR4dHEQe0J7Qv9C40YHQsNC90LjQtR0dHR0cRB7QodGB0YvQu9C60LgdHRwcZXhwZWN0ZWRSZXN1bHQdHFMdHEYeTh0cQR4aHRxEHtCS0L7Qt9Cy0YDQsNGJ0LDQtdC80L7QtSDQt9C90LDRh9C10L3QuNC1HR0cHGNvbnRleHREZXNjcmlwdGlvbh0cUx0cRh5OHRxBHhodHEQe0J7Qv9C40YHQsNC90LjQtSDQutC+0L3RgtC10LrRgdGC0LAg0L/QviDRg9C80L7Qu9GH0LDQvdC40Y4dHRwcdGFibGVEZXNjcmlwdGlvbh0cUx0cRh5OHRxBHhodHEQe0J7Qv9C40YHQsNC90LjQtSDRgtCw0LHQu9C40YbRiyDQv9C+INGD0LzQvtC70YfQsNC90LjRjh0dHE0eMR0cWB4xHR0cUh4cGh0cGh0cHFIeHC46I3R5cGUdHNCi0LjQvyDQutC+0L3RgtC10LrRgdGC0LAdHRxSHhwuOh0c0J/Rg9GC0Ywg0LrQvtC90YLQtdC60YHRgtCwHR0dHBodHBodHBodHQ==</editorOptions>
+              <help>Данное выражение определяет, к какому контексту (контекстам) будет прикреплен виджет.</help>
+              <group>Пригодность</group>
+              <defaultValue/>
+            </field>
+            <field description="Правила обновления пригодности" name="validityListeners" type="T">
+              <help>Список масок контекста и имен событий. Если событие, заданное в поле &apos;Событие&apos; данной таблицы, происходит в любом контексте, соответствующем маске, заданной в поле &apos;Маска контекста&apos; той же записи, выражение пригодности будет заново рассчитано для данного контекста. Это позволяет сделать виджет подходящим/неподходящим для определенного контекста в случае возникновения в нем изменений.</help>
+              <group>Пригодность</group>
+              <defaultValue>
+                <table>
+                  <format maxRecords="2147483647">
+                    <fields>
+                      <field description="Маска контекстов" editor="contextmask" icon="fi_context" keyfield="true" name="mask" type="S">
+                        <help>Маска контекстов, от которых нужно отслеживать события&#xd;
+</help>
+                        <defaultValue/>
+                      </field>
+                      <field description="Событие" extendableSelectionValues="true" icon="fi_event" keyfield="true" name="event" type="S">
+                        <help>Имя отслеживаемого события</help>
+                        <defaultValue/>
+                      </field>
+                      <field description="Выражение цели" editor="expression" icon="fi_expression" name="expression" nullable="true" type="S">
+                        <help>Eсли оно определено, то указывает на контекст, чью пригодность нужно проверить. Если &apos;Выражение цели&apos; не определено (что бывает в большинстве случаев), система проверяет пригодность контекста, в котором случилось &apos;Событие&apos;.</help>
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                    </fields>
+                    <bindings>
+                      <binding>
+                        <reference>event#choices</reference>
+                        <expression>{utilities:eventsByMask(&apos;{mask}&apos;)}</expression>
+                      </binding>
+                    </bindings>
+                    <validators contentType="base64">HEseHQ==</validators>
+                  </format>
+                </table>
+              </defaultValue>
+            </field>
+            <field description="Определять пригодность для удаленных контекстов" name="allowValidityForRemoteContexts" type="B">
+              <help>При включенном флажке разрешено прикрепление к удаленным контекстам, подключеным по распределенной архитектуре</help>
+              <group>Пригодность</group>
+              <defaultValue>0</defaultValue>
+            </field>
+            <field description="Контекст по умолчанию" editor="context" name="defaultContext" nullable="true" type="S">
+              <help>Контекст по умолчанию, используемый при редактировании шаблона относительного виджета в GUI Builder или его запуске без использования действия &quot;Запустить виджет&quot; в устройстве или системном ресурсе. Его значение автоматически устанавливается в пути к контексту, для которого был создан виджет. Обычно нет необходимости его редактировать, за исключением удаления контекста.</help>
+              <group>Пригодность</group>
+              <defaultValue>
+                <nullValue/>
+              </defaultValue>
+            </field>
+            <field description="Расположение по умолчанию" name="defaultLocation" type="T">
+              <help>Расположение окна виджета используется, когда виджет запускается вручную, т.е. без использования Автозапуска, Избранного и других средств.</help>
+              <group>Расположение окна</group>
+              <defaultValue>
+                <table>
+                  <format maxRecords="1" minRecords="1">
+                    <fields>
+                      <field description="Состояние" name="state" type="I">
+                        <selectionValues>
+                          <option description="Пристыкованное">0</option>
+                          <option description="Плавающее">1</option>
+                          <option description="На боковой панели">2</option>
+                        </selectionValues>
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field description="Сторона" name="side" type="I">
+                        <selectionValues>
+                          <option description="Сверху">0</option>
+                          <option description="Слева">1</option>
+                          <option description="Снизу">2</option>
+                          <option description="Справа">3</option>
+                        </selectionValues>
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field description="Индекс" name="index" type="I">
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field description="Ширина" name="width" nullable="true" type="I">
+                        <validators contentType="base64">HEweMSAyMTQ3NDgzNjQ3HQ==</validators>
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field description="Высота" name="height" nullable="true" type="I">
+                        <validators contentType="base64">HEweMSAyMTQ3NDgzNjQ3HQ==</validators>
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field description="Можно изменять размер" name="resizable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Окно можно закрыть" name="closable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Можно перестыковывать" name="movable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Можно включить плавающий режим" name="floatable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Можно раскрыть во весь экран" name="maximizable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Можно поместить в боковую панель" name="autohidable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Показывать область заголовка" name="showTitleBar" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field advanced="true" description="Ключ" name="key" type="S">
+                        <defaultValue/>
+                      </field>
+                      <field advanced="true" hidden="true" name="elementIndex" nullable="true" type="I">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                    </fields>
+                    <bindings>
+                      <binding>
+                        <reference>side#enabled</reference>
+                        <expression>{state} != 1</expression>
+                      </binding>
+                      <binding>
+                        <reference>floatable#enabled</reference>
+                        <expression>{movable} &amp;&amp; {state} != 1</expression>
+                      </binding>
+                      <binding>
+                        <reference>maximizable#enabled</reference>
+                        <expression>{movable}</expression>
+                      </binding>
+                      <binding>
+                        <reference>autohidable#enabled</reference>
+                        <expression>{movable}</expression>
+                      </binding>
+                    </bindings>
+                  </format>
+                  <records>
+                    <record>
+                      <value name="state">1</value>
+                      <value name="side">3</value>
+                    </record>
+                  </records>
+                </table>
+              </defaultValue>
+            </field>
+            <field description="Инструментальная панель" name="defaultDashboard" type="T">
+              <help>Данная настройка позволяет сконфигурировать запуск виджета как инструментальной панели.</help>
+              <group>Расположение окна</group>
+              <defaultValue>
+                <table>
+                  <format maxRecords="1" minRecords="1">
+                    <fields>
+                      <field description="Имя" name="name" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field description="Описание" name="description" nullable="true" type="S">
+                        <validators contentType="base64">HEweMCAxMDAdHFIeW15ccHtDbnRybH1dKl5e0J7Qv9C40YHQsNC90LjQtSDQvNC+0LbQtdGCINGB0L7QtNC10YDQttCw0YLRjCDRgtC+0LvRjNC60L4g0L/QtdGH0LDRgtC90YvQtSDRgdC40LzQstC+0LvRix0=</validators>
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field description="Компоновка" name="layout" type="I">
+                        <selectionValues>
+                          <option description="Плавающие окна">0</option>
+                          <option description="С прокруткой">1</option>
+                          <option description="Сетка">2</option>
+                        </selectionValues>
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field description="Колонки" name="columns" type="I">
+                        <defaultValue>3</defaultValue>
+                      </field>
+                      <field description="Можно закрыть" name="closable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Закрывать панель при повторном открытии" name="closeDashboardOnReopen" type="B">
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field hidden="true" name="cleanup" type="B">
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field description="Контекст хранилища" name="storageContext" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field hidden="true" name="storageClass" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field hidden="true" name="storageSessionId" nullable="true" type="L">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field hidden="true" name="defaultEvent" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field name="dashboardContext" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field name="elementId" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field name="parentElementId" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                    </fields>
+                  </format>
+                  <records>
+                    <record/>
+                  </records>
+                </table>
+              </defaultValue>
+            </field>
+            <field hidden="true" name="resourceBundle" nullable="true" readonly="true" type="S">
+              <defaultValue>
+                <nullValue/>
+              </defaultValue>
+            </field>
+          </fields>
+          <bindings>
+            <binding>
+              <reference>validityExpression#hidden</reference>
+              <expression>{type} == 1</expression>
+            </binding>
+            <binding>
+              <reference>validityListeners#hidden</reference>
+              <expression>{type} == 1</expression>
+            </binding>
+            <binding>
+              <reference>allowValidityForRemoteContexts#hidden</reference>
+              <expression>{type} == 1</expression>
+            </binding>
+            <binding>
+              <reference>defaultContext#hidden</reference>
+              <expression>{type} == 1</expression>
+            </binding>
+            <binding>
+              <reference>validityExpression#options</reference>
+              <expression>expressionEditorOptions({type} == 0 ? {defaultContext} : {.:})</expression>
+            </binding>
+          </bindings>
+        </format>
+        <records>
+          <record>
+            <value name="name">random</value>
+            <value name="description">Random Value Chart</value>
+            <value name="template">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;template&gt;
+    &lt;resources&gt;
+        &lt;resource id=&quot;mode&quot; parent=&quot;head&quot;/&gt;
+        &lt;resource id=&quot;zLbl&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;1y&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;3d&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;1w&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;2w&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;5d&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;1d&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;1m&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;6m&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;3m&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;s1&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;6h&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;1h&quot; parent=&quot;zPanel&quot;/&gt;
+        &lt;resource id=&quot;zPanel&quot; parent=&quot;head&quot;/&gt;
+        &lt;resource id=&quot;s2&quot; parent=&quot;head&quot;/&gt;
+        &lt;resource id=&quot;options&quot; parent=&quot;head&quot;/&gt;
+        &lt;resource id=&quot;hEmpty&quot; parent=&quot;head&quot;/&gt;
+        &lt;resource id=&quot;head&quot; parent=&quot;&quot;/&gt;
+        &lt;resource id=&quot;period&quot; parent=&quot;pPanel&quot;/&gt;
+        &lt;resource id=&quot;units&quot; parent=&quot;pPanel&quot;/&gt;
+        &lt;resource id=&quot;by&quot; parent=&quot;pPanel&quot;/&gt;
+        &lt;resource id=&quot;aggregation&quot; parent=&quot;pPanel&quot;/&gt;
+        &lt;resource id=&quot;pPanel&quot; parent=&quot;spPanel&quot;/&gt;
+        &lt;resource id=&quot;seriesProperties&quot; parent=&quot;spPanel&quot;/&gt;
+        &lt;resource id=&quot;apply&quot; parent=&quot;spPanel&quot;/&gt;
+        &lt;resource id=&quot;spPanel&quot; parent=&quot;body&quot;/&gt;
+        &lt;resource id=&quot;historyChart&quot; parent=&quot;body&quot;/&gt;
+        &lt;resource id=&quot;body&quot; parent=&quot;&quot;/&gt;
+        &lt;resource id=&quot;dateRange&quot; parent=&quot;drPanel&quot;/&gt;
+        &lt;resource id=&quot;drPanel&quot; parent=&quot;&quot;/&gt;
+        &lt;resource id=&quot;&quot;/&gt;
+    &lt;/resources&gt;
+    &lt;view&gt;
+        &lt;root resourceID=&quot;&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;width&gt;800&lt;/width&gt;
+            &lt;height&gt;600&lt;/height&gt;
+            &lt;ignoreBindingErrors&gt;0&lt;/ignoreBindingErrors&gt;
+        &lt;/root&gt;
+        &lt;panel resourceID=&quot;head&quot;&gt;
+            &lt;opaque&gt;1&lt;/opaque&gt;
+            &lt;background&gt;#F2F2F2FF&lt;/background&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#EDEDEDFF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/panel&gt;
+        &lt;comboBox resourceID=&quot;mode&quot;&gt;
+            &lt;foreground&gt;#595959FF&lt;/foreground&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;maximumRowCount&gt;5&lt;/maximumRowCount&gt;
+            &lt;options&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{chLastValues}&lt;/description&gt;
+                    &lt;value&gt;1&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{chDateRange}&lt;/description&gt;
+                    &lt;value&gt;2&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{chFullHistory}&lt;/description&gt;
+                    &lt;value&gt;0&lt;/value&gt;
+                &lt;/record&gt;
+            &lt;/options&gt;
+            &lt;selectedItem&gt;1&lt;/selectedItem&gt;
+            &lt;anchor&gt;17&lt;/anchor&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;2&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+        &lt;/comboBox&gt;
+        &lt;panel resourceID=&quot;zPanel&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;gridx&gt;1&lt;/gridx&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/panel&gt;
+        &lt;label resourceID=&quot;zLbl&quot;&gt;
+            &lt;foreground&gt;#595959FF&lt;/foreground&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;$R{wZoom}:&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;1&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;1y&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#244195FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;1$R{wYr}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;12&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;3d&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#244195FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;3$R{wD}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;5&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;1w&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#244195FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;1$R{wW}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;7&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;2w&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#244195FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;2$R{wW}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;8&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;5d&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#244195FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;5$R{wD}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;6&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;1d&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;0&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#1D46C0FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;1$R{wD}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;4&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;1m&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#244195FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;1$R{wM}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;9&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;6m&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#244195FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;6$R{wM}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;11&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;3m&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#244195FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;3$R{wM}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;10&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;s1&quot;&gt;
+            &lt;width&gt;4&lt;/width&gt;
+            &lt;height&gt;14&lt;/height&gt;
+            &lt;foreground&gt;#595959FF&lt;/foreground&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;/&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;6h&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#1D46C0FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;6$R{wH}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;3&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;1h&quot;&gt;
+            &lt;foreground&gt;#244195FF&lt;/foreground&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;0&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#1D46C0FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;text&gt;1$R{wH}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;2&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;s2&quot;&gt;
+            &lt;foreground&gt;#808080FF&lt;/foreground&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;/&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;2&lt;/gridx&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+        &lt;/label&gt;
+        &lt;toggleButton resourceID=&quot;options&quot;&gt;
+            &lt;height&gt;21&lt;/height&gt;
+            &lt;foreground&gt;#595959FF&lt;/foreground&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;$R{wOptions}&lt;/text&gt;
+            &lt;margin&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/margin&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;3&lt;/gridx&gt;
+            &lt;insetsLeft&gt;5&lt;/insetsLeft&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+        &lt;/toggleButton&gt;
+        &lt;panel resourceID=&quot;hEmpty&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;gridx&gt;4&lt;/gridx&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/panel&gt;
+        &lt;panel resourceID=&quot;body&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;gridy&gt;1&lt;/gridy&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;2&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+        &lt;/panel&gt;
+        &lt;panel resourceID=&quot;spPanel&quot;&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#EDEDEDFF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;gridx&gt;1&lt;/gridx&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+        &lt;/panel&gt;
+        &lt;panel resourceID=&quot;pPanel&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/panel&gt;
+        &lt;spinner resourceID=&quot;period&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;value&gt;1&lt;/value&gt;
+        &lt;/spinner&gt;
+        &lt;comboBox resourceID=&quot;units&quot;&gt;
+            &lt;width&gt;82&lt;/width&gt;
+            &lt;height&gt;19&lt;/height&gt;
+            &lt;foreground&gt;#595959FF&lt;/foreground&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;maximumRowCount&gt;5&lt;/maximumRowCount&gt;
+            &lt;options&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wMinutes}&lt;/description&gt;
+                    &lt;value&gt;60000&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wHours}&lt;/description&gt;
+                    &lt;value&gt;3600000&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wDays}&lt;/description&gt;
+                    &lt;value&gt;86400000&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wWeeks}&lt;/description&gt;
+                    &lt;value&gt;604800000&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wMonths}&lt;/description&gt;
+                    &lt;value&gt;2592000000&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wYears}&lt;/description&gt;
+                    &lt;value&gt;31536000000&lt;/value&gt;
+                &lt;/record&gt;
+            &lt;/options&gt;
+            &lt;selectedItem&gt;86400000&lt;/selectedItem&gt;
+            &lt;gridx&gt;1&lt;/gridx&gt;
+            &lt;anchor&gt;17&lt;/anchor&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;2&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+        &lt;/comboBox&gt;
+        &lt;label resourceID=&quot;by&quot;&gt;
+            &lt;foreground&gt;#595959FF&lt;/foreground&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;$R{wBy}&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;2&lt;/gridx&gt;
+        &lt;/label&gt;
+        &lt;comboBox resourceID=&quot;aggregation&quot;&gt;
+            &lt;width&gt;82&lt;/width&gt;
+            &lt;height&gt;19&lt;/height&gt;
+            &lt;foreground&gt;#595959FF&lt;/foreground&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor&gt;12&lt;/cursor&gt;
+            &lt;customProperties&gt;
+                &lt;record&gt;
+                    &lt;name&gt;transitionTable&lt;/name&gt;
+                    &lt;format&gt;
+                        &lt;table&gt;
+                            &lt;format maxRecords=&quot;2147483647&quot; minRecords=&quot;1&quot;&gt;
+                                &lt;fields&gt;
+                                    &lt;field description=&quot;Unit&quot;
+                                    name=&quot;unit&quot; type=&quot;S&quot;&gt;
+                                    &lt;defaultValue/&gt;
+                                    &lt;/field&gt;
+                                    &lt;field description=&quot;Aggregation&quot;
+                                    name=&quot;aggregation&quot; type=&quot;S&quot;&gt;
+                                    &lt;defaultValue/&gt;
+                                    &lt;/field&gt;
+                                &lt;/fields&gt;
+                            &lt;/format&gt;
+                            &lt;records&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;unit&quot;&gt;1000&lt;/value&gt;
+                                    &lt;value name=&quot;aggregation&quot;&gt;1&lt;/value&gt;
+                                &lt;/record&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;unit&quot;&gt;60000&lt;/value&gt;
+                                    &lt;value name=&quot;aggregation&quot;&gt;1&lt;/value&gt;
+                                &lt;/record&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;unit&quot;&gt;3600000&lt;/value&gt;
+                                    &lt;value name=&quot;aggregation&quot;&gt;2&lt;/value&gt;
+                                &lt;/record&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;unit&quot;&gt;86400000&lt;/value&gt;
+                                    &lt;value name=&quot;aggregation&quot;&gt;3&lt;/value&gt;
+                                &lt;/record&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;unit&quot;&gt;604800000&lt;/value&gt;
+                                    &lt;value name=&quot;aggregation&quot;&gt;3&lt;/value&gt;
+                                &lt;/record&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;unit&quot;&gt;2592000000&lt;/value&gt;
+                                    &lt;value name=&quot;aggregation&quot;&gt;4&lt;/value&gt;
+                                &lt;/record&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;unit&quot;&gt;31536000000&lt;/value&gt;
+                                    &lt;value name=&quot;aggregation&quot;&gt;4&lt;/value&gt;
+                                &lt;/record&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/format&gt;
+                    &lt;description&gt;transitionTable&lt;/description&gt;
+                    &lt;help contentType=&quot;base64&quot;&gt;Gg==&lt;/help&gt;
+                &lt;/record&gt;
+            &lt;/customProperties&gt;
+            &lt;maximumRowCount&gt;5&lt;/maximumRowCount&gt;
+            &lt;options&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wSeconds}&lt;/description&gt;
+                    &lt;value&gt;1&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wMinutes}&lt;/description&gt;
+                    &lt;value&gt;2&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wHours}&lt;/description&gt;
+                    &lt;value&gt;3&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wDays}&lt;/description&gt;
+                    &lt;value&gt;4&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wWeeks}&lt;/description&gt;
+                    &lt;value&gt;5&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wMonths}&lt;/description&gt;
+                    &lt;value&gt;6&lt;/value&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;description&gt;$R{wYears}&lt;/description&gt;
+                    &lt;value&gt;8&lt;/value&gt;
+                &lt;/record&gt;
+            &lt;/options&gt;
+            &lt;selectedItem&gt;3&lt;/selectedItem&gt;
+            &lt;gridx&gt;3&lt;/gridx&gt;
+            &lt;anchor&gt;17&lt;/anchor&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;2&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+        &lt;/comboBox&gt;
+        &lt;dataTableEditor resourceID=&quot;seriesProperties&quot;&gt;
+            &lt;width&gt;300&lt;/width&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#EDEDEDFF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;fixedTable&gt;
+                &lt;record&gt;
+                    &lt;table&gt;
+                        &lt;format maxRecords=&quot;2147483647&quot;&gt;
+                            &lt;fields&gt;
+                                &lt;field description=&quot;$R{chSeriesKey}&quot;
+                                    hidden=&quot;true&quot; name=&quot;name&quot;
+                                    readonly=&quot;true&quot; type=&quot;S&quot;&gt;
+                                    &lt;defaultValue/&gt;
+                                &lt;/field&gt;
+                                &lt;field description=&quot;$R{chDescription}&quot;
+                                    name=&quot;description&quot; nullable=&quot;true&quot; type=&quot;S&quot;&gt;
+                                    &lt;defaultValue&gt;
+                                    &lt;nullValue/&gt;
+                                    &lt;/defaultValue&gt;
+                                &lt;/field&gt;
+                                &lt;field description=&quot;$R{chVisible}&quot;
+                                    name=&quot;visibility&quot; nullable=&quot;true&quot; type=&quot;B&quot;&gt;
+                                    &lt;defaultValue&gt;
+                                    &lt;nullValue/&gt;
+                                    &lt;/defaultValue&gt;
+                                &lt;/field&gt;
+                                &lt;field description=&quot;$R{chPaint}&quot;
+                                    editor=&quot;box&quot; name=&quot;paint&quot;
+                                    nullable=&quot;true&quot; type=&quot;C&quot;&gt;
+                                    &lt;defaultValue&gt;
+                                    &lt;nullValue/&gt;
+                                    &lt;/defaultValue&gt;
+                                &lt;/field&gt;
+                            &lt;/fields&gt;
+                        &lt;/format&gt;
+                    &lt;/table&gt;
+                &lt;/record&gt;
+            &lt;/fixedTable&gt;
+            &lt;gridy&gt;1&lt;/gridy&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsLeft&gt;2&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+        &lt;/dataTableEditor&gt;
+        &lt;button resourceID=&quot;apply&quot;&gt;
+            &lt;height&gt;21&lt;/height&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;$R{wApply}&lt;/text&gt;
+            &lt;margin&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/margin&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridy&gt;2&lt;/gridy&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;2&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;weightx&gt;0.0&lt;/weightx&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/button&gt;
+        &lt;xyLineChart resourceID=&quot;historyChart&quot;&gt;
+            &lt;source&gt;1&lt;/source&gt;
+            &lt;variableSeries&gt;
+                &lt;record&gt;
+                    &lt;name&gt;value&lt;/name&gt;
+                    &lt;context&gt;.&lt;/context&gt;
+                    &lt;entity&gt;random&lt;/entity&gt;
+                    &lt;expression&gt;{value}&lt;/expression&gt;
+                    &lt;dateExpression contentType=&quot;base64&quot;&gt;Gg==&lt;/dateExpression&gt;
+                    &lt;propagate&gt;0&lt;/propagate&gt;
+                    &lt;aggregation&gt;0&lt;/aggregation&gt;
+                    &lt;type&gt;0&lt;/type&gt;
+                &lt;/record&gt;
+            &lt;/variableSeries&gt;
+            &lt;enableTimeRange&gt;1&lt;/enableTimeRange&gt;
+            &lt;timeRange&gt;3600000&lt;/timeRange&gt;
+            &lt;timeUnit&gt;1&lt;/timeUnit&gt;
+            &lt;sourceData&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 1&lt;/series&gt;
+                    &lt;x&gt;1.0&lt;/x&gt;
+                    &lt;y&gt;500.20001220703125&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 1&lt;/series&gt;
+                    &lt;x&gt;2.0&lt;/x&gt;
+                    &lt;y&gt;694.0999755859375&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 1&lt;/series&gt;
+                    &lt;x&gt;3.0&lt;/x&gt;
+                    &lt;y&gt;-534.4000244140625&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 1&lt;/series&gt;
+                    &lt;x&gt;4.0&lt;/x&gt;
+                    &lt;y&gt;453.20001220703125&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 1&lt;/series&gt;
+                    &lt;x&gt;5.0&lt;/x&gt;
+                    &lt;y&gt;500.20001220703125&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 1&lt;/series&gt;
+                    &lt;x&gt;6.0&lt;/x&gt;
+                    &lt;y&gt;300.70001220703125&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 1&lt;/series&gt;
+                    &lt;x&gt;7.0&lt;/x&gt;
+                    &lt;y&gt;734.4000244140625&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 1&lt;/series&gt;
+                    &lt;x&gt;8.0&lt;/x&gt;
+                    &lt;y&gt;453.20001220703125&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 2&lt;/series&gt;
+                    &lt;x&gt;1.0&lt;/x&gt;
+                    &lt;y&gt;700.2000122070312&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 2&lt;/series&gt;
+                    &lt;x&gt;2.0&lt;/x&gt;
+                    &lt;y&gt;534.0999755859375&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 2&lt;/series&gt;
+                    &lt;x&gt;3.0&lt;/x&gt;
+                    &lt;y&gt;323.3999938964844&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 2&lt;/series&gt;
+                    &lt;x&gt;4.0&lt;/x&gt;
+                    &lt;y&gt;125.19999694824219&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 2&lt;/series&gt;
+                    &lt;x&gt;5.0&lt;/x&gt;
+                    &lt;y&gt;653.2000122070312&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 2&lt;/series&gt;
+                    &lt;x&gt;6.0&lt;/x&gt;
+                    &lt;y&gt;432.70001220703125&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 2&lt;/series&gt;
+                    &lt;x&gt;7.0&lt;/x&gt;
+                    &lt;y&gt;564.4000244140625&lt;/y&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;series&gt;Series 2&lt;/series&gt;
+                    &lt;x&gt;8.0&lt;/x&gt;
+                    &lt;y&gt;322.20001220703125&lt;/y&gt;
+                &lt;/record&gt;
+            &lt;/sourceData&gt;
+            &lt;chartBindings&gt;
+                &lt;record&gt;
+                    &lt;series&gt;{series}&lt;/series&gt;
+                    &lt;x&gt;{x}&lt;/x&gt;
+                    &lt;y&gt;{y}&lt;/y&gt;
+                &lt;/record&gt;
+            &lt;/chartBindings&gt;
+            &lt;insets&gt;
+                &lt;top&gt;0.0&lt;/top&gt;
+                &lt;left&gt;0.0&lt;/left&gt;
+                &lt;bottom&gt;0.0&lt;/bottom&gt;
+                &lt;right&gt;0.0&lt;/right&gt;
+            &lt;/insets&gt;
+            &lt;backgroundPaint&gt;
+                &lt;color&gt;#FFFFFFFF&lt;/color&gt;
+            &lt;/backgroundPaint&gt;
+            &lt;backgroundImageAlignment&gt;15&lt;/backgroundImageAlignment&gt;
+            &lt;backgroundImageAlpha&gt;0.5&lt;/backgroundImageAlpha&gt;
+            &lt;outlineVisible&gt;0&lt;/outlineVisible&gt;
+            &lt;outlinePaint&gt;
+                &lt;color&gt;#000000FF&lt;/color&gt;
+            &lt;/outlinePaint&gt;
+            &lt;outlineStroke&gt;
+                &lt;lineWidth&gt;0.5&lt;/lineWidth&gt;
+                &lt;endCap&gt;1&lt;/endCap&gt;
+                &lt;lineJoin&gt;1&lt;/lineJoin&gt;
+                &lt;dashArray&gt;
+                    &lt;nullValue/&gt;
+                &lt;/dashArray&gt;
+            &lt;/outlineStroke&gt;
+            &lt;noDataMessageFont&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;SansSerif&lt;/name&gt;
+                &lt;size&gt;12&lt;/size&gt;
+            &lt;/noDataMessageFont&gt;
+            &lt;noDataMessagePaint&gt;
+                &lt;color&gt;#000000FF&lt;/color&gt;
+            &lt;/noDataMessagePaint&gt;
+            &lt;borderVisible&gt;1&lt;/borderVisible&gt;
+            &lt;borderPaint&gt;
+                &lt;color&gt;#EDEDEDFF&lt;/color&gt;
+            &lt;/borderPaint&gt;
+            &lt;borderStroke&gt;
+                &lt;dashArray&gt;
+                    &lt;nullValue/&gt;
+                &lt;/dashArray&gt;
+            &lt;/borderStroke&gt;
+            &lt;padding&gt;
+                &lt;top&gt;0.0&lt;/top&gt;
+                &lt;left&gt;0.0&lt;/left&gt;
+                &lt;bottom&gt;0.0&lt;/bottom&gt;
+                &lt;right&gt;0.0&lt;/right&gt;
+            &lt;/padding&gt;
+            &lt;title&gt;
+                &lt;text/&gt;
+                &lt;font&gt;
+                    &lt;table&gt;
+                        &lt;records&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;custom&quot;&gt;1&lt;/value&gt;
+                                &lt;value name=&quot;name&quot;&gt;Tahoma&lt;/value&gt;
+                                &lt;value name=&quot;size&quot;&gt;20&lt;/value&gt;
+                                &lt;value name=&quot;bold&quot;&gt;1&lt;/value&gt;
+                            &lt;/record&gt;
+                        &lt;/records&gt;
+                    &lt;/table&gt;
+                &lt;/font&gt;
+                &lt;margin&gt;
+                    &lt;table&gt;
+                        &lt;records&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;top&quot;&gt;0.0&lt;/value&gt;
+                                &lt;value name=&quot;left&quot;&gt;0.0&lt;/value&gt;
+                                &lt;value name=&quot;bottom&quot;&gt;0.0&lt;/value&gt;
+                                &lt;value name=&quot;right&quot;&gt;0.0&lt;/value&gt;
+                            &lt;/record&gt;
+                        &lt;/records&gt;
+                    &lt;/table&gt;
+                &lt;/margin&gt;
+                &lt;frame&gt;
+                    &lt;table&gt;
+                        &lt;records&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;type&quot;&gt;1&lt;/value&gt;
+                                &lt;value name=&quot;insets&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;top&quot;&gt;0.0&lt;/value&gt;
+                                    &lt;value name=&quot;left&quot;&gt;0.0&lt;/value&gt;
+                                    &lt;value name=&quot;bottom&quot;&gt;0.0&lt;/value&gt;
+                                    &lt;value name=&quot;right&quot;&gt;0.0&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                &lt;/value&gt;
+                                &lt;value name=&quot;paint&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#FFFFFFFF&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                &lt;/value&gt;
+                            &lt;/record&gt;
+                        &lt;/records&gt;
+                    &lt;/table&gt;
+                &lt;/frame&gt;
+                &lt;position&gt;top&lt;/position&gt;
+                &lt;backgroundPaint&gt;
+                    &lt;nullValue/&gt;
+                &lt;/backgroundPaint&gt;
+            &lt;/title&gt;
+            &lt;legendSubtitles&gt;
+                &lt;record&gt;
+                    &lt;visible&gt;1&lt;/visible&gt;
+                    &lt;width&gt;0.0&lt;/width&gt;
+                    &lt;height&gt;0.0&lt;/height&gt;
+                    &lt;margin&gt;
+                        &lt;table&gt;
+                            &lt;records&gt;
+                                &lt;record/&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/margin&gt;
+                    &lt;padding&gt;
+                        &lt;table&gt;
+                            &lt;records&gt;
+                                &lt;record/&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/padding&gt;
+                    &lt;frame&gt;
+                        &lt;table&gt;
+                            &lt;records&gt;
+                                &lt;record/&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/frame&gt;
+                    &lt;position&gt;bottom&lt;/position&gt;
+                    &lt;horizontalAlignment&gt;center&lt;/horizontalAlignment&gt;
+                    &lt;verticalAlignment&gt;center&lt;/verticalAlignment&gt;
+                    &lt;backgroundPaint&gt;
+                        &lt;table&gt;
+                            &lt;records&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#FFFFFFFF&lt;/value&gt;
+                                &lt;/record&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/backgroundPaint&gt;
+                    &lt;itemFont&gt;
+                        &lt;table&gt;
+                            &lt;records&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;custom&quot;&gt;1&lt;/value&gt;
+                                    &lt;value name=&quot;name&quot;&gt;Tahoma&lt;/value&gt;
+                                    &lt;value name=&quot;size&quot;&gt;12&lt;/value&gt;
+                                &lt;/record&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/itemFont&gt;
+                    &lt;itemLabelPadding&gt;
+                        &lt;table&gt;
+                            &lt;records&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;top&quot;&gt;2.0&lt;/value&gt;
+                                    &lt;value name=&quot;left&quot;&gt;2.0&lt;/value&gt;
+                                    &lt;value name=&quot;bottom&quot;&gt;2.0&lt;/value&gt;
+                                    &lt;value name=&quot;right&quot;&gt;2.0&lt;/value&gt;
+                                &lt;/record&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/itemLabelPadding&gt;
+                    &lt;itemPaint&gt;
+                        &lt;table&gt;
+                            &lt;records&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#404040FF&lt;/value&gt;
+                                &lt;/record&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/itemPaint&gt;
+                    &lt;legendItemGraphicAnchor&gt;center&lt;/legendItemGraphicAnchor&gt;
+                    &lt;legendItemGraphicEdge&gt;left&lt;/legendItemGraphicEdge&gt;
+                    &lt;legendItemGraphicLocation&gt;center&lt;/legendItemGraphicLocation&gt;
+                    &lt;legendItemGraphicPadding&gt;
+                        &lt;table&gt;
+                            &lt;records&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;top&quot;&gt;2.0&lt;/value&gt;
+                                    &lt;value name=&quot;left&quot;&gt;2.0&lt;/value&gt;
+                                    &lt;value name=&quot;bottom&quot;&gt;2.0&lt;/value&gt;
+                                    &lt;value name=&quot;right&quot;&gt;2.0&lt;/value&gt;
+                                &lt;/record&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/legendItemGraphicPadding&gt;
+                &lt;/record&gt;
+            &lt;/legendSubtitles&gt;
+            &lt;orientation&gt;vertical&lt;/orientation&gt;
+            &lt;axisOffset&gt;
+                &lt;top&gt;4.0&lt;/top&gt;
+                &lt;left&gt;4.0&lt;/left&gt;
+                &lt;bottom&gt;4.0&lt;/bottom&gt;
+                &lt;right&gt;4.0&lt;/right&gt;
+            &lt;/axisOffset&gt;
+            &lt;quadrantsPaint&gt;
+                &lt;record&gt;
+                    &lt;quadrant&gt;0&lt;/quadrant&gt;
+                    &lt;quadrantsPaint&gt;
+                        &lt;nullValue/&gt;
+                    &lt;/quadrantsPaint&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;quadrant&gt;1&lt;/quadrant&gt;
+                    &lt;quadrantsPaint&gt;
+                        &lt;nullValue/&gt;
+                    &lt;/quadrantsPaint&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;quadrant&gt;2&lt;/quadrant&gt;
+                    &lt;quadrantsPaint&gt;
+                        &lt;nullValue/&gt;
+                    &lt;/quadrantsPaint&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;quadrant&gt;3&lt;/quadrant&gt;
+                    &lt;quadrantsPaint&gt;
+                        &lt;nullValue/&gt;
+                    &lt;/quadrantsPaint&gt;
+                &lt;/record&gt;
+            &lt;/quadrantsPaint&gt;
+            &lt;domainTickBandPaint&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/domainTickBandPaint&gt;
+            &lt;rangeTickBandPaint&gt;
+                &lt;color&gt;#F9F9F9FF&lt;/color&gt;
+            &lt;/rangeTickBandPaint&gt;
+            &lt;domainPannable&gt;1&lt;/domainPannable&gt;
+            &lt;rangePannable&gt;1&lt;/rangePannable&gt;
+            &lt;domainAxisProperties&gt;
+                &lt;record&gt;
+                    &lt;axis&gt;
+                        &lt;table&gt;
+                            &lt;records&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;labelFont&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;custom&quot;&gt;1&lt;/value&gt;
+                                    &lt;value name=&quot;name&quot;&gt;Calibri&lt;/value&gt;
+                                    &lt;value name=&quot;size&quot;&gt;12&lt;/value&gt;
+                                    &lt;value name=&quot;bold&quot;&gt;1&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;labelPaint&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#404040FF&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;axisLinePaint&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#C0C0C0FF&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;tickLabelFont&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;custom&quot;&gt;1&lt;/value&gt;
+                                    &lt;value name=&quot;name&quot;&gt;Calibri&lt;/value&gt;
+                                    &lt;value name=&quot;size&quot;&gt;12&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;tickLabelPaint&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#595959FF&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;tickMarkPaint&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#C0C0C0FF&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;lowerMargin&quot;&gt;0.01&lt;/value&gt;
+                                    &lt;value name=&quot;upperMargin&quot;&gt;0.01&lt;/value&gt;
+                                    &lt;value name=&quot;dateTickUnit&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;unitType&quot;&gt;MILLISECOND&lt;/value&gt;
+                                    &lt;value name=&quot;multiple&quot;&gt;5&lt;/value&gt;
+                                    &lt;value name=&quot;formatString&quot;&gt;HH:mm:ss.SSS&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                &lt;/record&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/axis&gt;
+                    &lt;location&gt;BOTTOM_OR_LEFT&lt;/location&gt;
+                &lt;/record&gt;
+            &lt;/domainAxisProperties&gt;
+            &lt;rangeAxisProperties&gt;
+                &lt;record&gt;
+                    &lt;axis&gt;
+                        &lt;table&gt;
+                            &lt;records&gt;
+                                &lt;record&gt;
+                                    &lt;value name=&quot;type&quot;&gt;3&lt;/value&gt;
+                                    &lt;value name=&quot;labelFont&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;custom&quot;&gt;1&lt;/value&gt;
+                                    &lt;value name=&quot;name&quot;&gt;Calibri&lt;/value&gt;
+                                    &lt;value name=&quot;size&quot;&gt;12&lt;/value&gt;
+                                    &lt;value name=&quot;bold&quot;&gt;1&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;labelPaint&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#595959FF&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;axisLinePaint&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#C0C0C0FF&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;tickLabelFont&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;custom&quot;&gt;1&lt;/value&gt;
+                                    &lt;value name=&quot;name&quot;&gt;Calibri&lt;/value&gt;
+                                    &lt;value name=&quot;size&quot;&gt;12&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;tickLabelPaint&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#595959FF&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;tickMarkPaint&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;color&quot;&gt;#C0C0C0FF&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;lowerMargin&quot;&gt;0.01&lt;/value&gt;
+                                    &lt;value name=&quot;upperMargin&quot;&gt;0.01&lt;/value&gt;
+                                    &lt;value name=&quot;numberTickUnit&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;size&quot;&gt;100.0&lt;/value&gt;
+                                    &lt;value name=&quot;minorTickCount&quot;&gt;2&lt;/value&gt;
+                                    &lt;value name=&quot;formatString&quot;&gt;#0&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;numberFormatOverride&quot;&gt;
+                                    &lt;nullValue/&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;numberRange&quot;&gt;
+                                    &lt;table&gt;
+                                    &lt;records&gt;
+                                    &lt;record&gt;
+                                    &lt;value name=&quot;lowerBound&quot;&gt;0.0&lt;/value&gt;
+                                    &lt;value name=&quot;upperBound&quot;&gt;1.01&lt;/value&gt;
+                                    &lt;/record&gt;
+                                    &lt;/records&gt;
+                                    &lt;/table&gt;
+                                    &lt;/value&gt;
+                                    &lt;value name=&quot;autoRangeIncludesZero&quot;&gt;0&lt;/value&gt;
+                                &lt;/record&gt;
+                            &lt;/records&gt;
+                        &lt;/table&gt;
+                    &lt;/axis&gt;
+                    &lt;location&gt;BOTTOM_OR_LEFT&lt;/location&gt;
+                &lt;/record&gt;
+            &lt;/rangeAxisProperties&gt;
+            &lt;domainZeroBaselineStroke&gt;
+                &lt;lineWidth&gt;0.5&lt;/lineWidth&gt;
+                &lt;dashArray&gt;
+                    &lt;nullValue/&gt;
+                &lt;/dashArray&gt;
+            &lt;/domainZeroBaselineStroke&gt;
+            &lt;domainZeroBaselinePaint&gt;
+                &lt;color&gt;#000000FF&lt;/color&gt;
+            &lt;/domainZeroBaselinePaint&gt;
+            &lt;rangeZeroBaselineStroke&gt;
+                &lt;lineWidth&gt;0.5&lt;/lineWidth&gt;
+                &lt;dashArray&gt;
+                    &lt;nullValue/&gt;
+                &lt;/dashArray&gt;
+            &lt;/rangeZeroBaselineStroke&gt;
+            &lt;rangeZeroBaselinePaint&gt;
+                &lt;color&gt;#000000FF&lt;/color&gt;
+            &lt;/rangeZeroBaselinePaint&gt;
+            &lt;fixedDomainAxisSpace&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/fixedDomainAxisSpace&gt;
+            &lt;fixedRangeAxisSpace&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/fixedRangeAxisSpace&gt;
+            &lt;domainCrosshairVisible&gt;1&lt;/domainCrosshairVisible&gt;
+            &lt;domainCrosshairStroke&gt;
+                &lt;endCap&gt;0&lt;/endCap&gt;
+                &lt;lineJoin&gt;2&lt;/lineJoin&gt;
+                &lt;miterLimit&gt;0.0&lt;/miterLimit&gt;
+                &lt;dashArray&gt;
+                    &lt;table&gt;
+                        &lt;records&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                        &lt;/records&gt;
+                    &lt;/table&gt;
+                &lt;/dashArray&gt;
+            &lt;/domainCrosshairStroke&gt;
+            &lt;domainCrosshairLockedOnData&gt;1&lt;/domainCrosshairLockedOnData&gt;
+            &lt;rangeCrosshairVisible&gt;1&lt;/rangeCrosshairVisible&gt;
+            &lt;rangeCrosshairStroke&gt;
+                &lt;endCap&gt;0&lt;/endCap&gt;
+                &lt;lineJoin&gt;2&lt;/lineJoin&gt;
+                &lt;miterLimit&gt;0.0&lt;/miterLimit&gt;
+                &lt;dashArray&gt;
+                    &lt;table&gt;
+                        &lt;records&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                        &lt;/records&gt;
+                    &lt;/table&gt;
+                &lt;/dashArray&gt;
+            &lt;/rangeCrosshairStroke&gt;
+            &lt;rangeCrosshairLockedOnData&gt;1&lt;/rangeCrosshairLockedOnData&gt;
+            &lt;crosshairLockedOnCursor&gt;1&lt;/crosshairLockedOnCursor&gt;
+            &lt;crosshairAnnotations&gt;1&lt;/crosshairAnnotations&gt;
+            &lt;domainGridlinesVisible&gt;1&lt;/domainGridlinesVisible&gt;
+            &lt;domainGridlineStroke&gt;
+                &lt;lineWidth&gt;0.5&lt;/lineWidth&gt;
+                &lt;endCap&gt;0&lt;/endCap&gt;
+                &lt;lineJoin&gt;2&lt;/lineJoin&gt;
+                &lt;miterLimit&gt;0.0&lt;/miterLimit&gt;
+                &lt;dashArray&gt;
+                    &lt;table&gt;
+                        &lt;records&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                        &lt;/records&gt;
+                    &lt;/table&gt;
+                &lt;/dashArray&gt;
+            &lt;/domainGridlineStroke&gt;
+            &lt;domainGridlinePaint&gt;
+                &lt;color&gt;#C0C0C0FF&lt;/color&gt;
+            &lt;/domainGridlinePaint&gt;
+            &lt;rangeGridlinesVisible&gt;1&lt;/rangeGridlinesVisible&gt;
+            &lt;rangeGridlineStroke&gt;
+                &lt;lineWidth&gt;0.5&lt;/lineWidth&gt;
+                &lt;endCap&gt;0&lt;/endCap&gt;
+                &lt;lineJoin&gt;2&lt;/lineJoin&gt;
+                &lt;miterLimit&gt;0.0&lt;/miterLimit&gt;
+                &lt;dashArray&gt;
+                    &lt;table&gt;
+                        &lt;records&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                        &lt;/records&gt;
+                    &lt;/table&gt;
+                &lt;/dashArray&gt;
+            &lt;/rangeGridlineStroke&gt;
+            &lt;rangeGridlinePaint&gt;
+                &lt;color&gt;#C0C0C0FF&lt;/color&gt;
+            &lt;/rangeGridlinePaint&gt;
+            &lt;domainMinorGridlineStroke&gt;
+                &lt;lineWidth&gt;0.5&lt;/lineWidth&gt;
+                &lt;endCap&gt;0&lt;/endCap&gt;
+                &lt;lineJoin&gt;2&lt;/lineJoin&gt;
+                &lt;miterLimit&gt;0.0&lt;/miterLimit&gt;
+                &lt;dashArray&gt;
+                    &lt;table&gt;
+                        &lt;records&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                        &lt;/records&gt;
+                    &lt;/table&gt;
+                &lt;/dashArray&gt;
+            &lt;/domainMinorGridlineStroke&gt;
+            &lt;domainMinorGridlinePaint&gt;
+                &lt;color&gt;#C0C0C0FF&lt;/color&gt;
+            &lt;/domainMinorGridlinePaint&gt;
+            &lt;rangeMinorGridlinesVisible&gt;1&lt;/rangeMinorGridlinesVisible&gt;
+            &lt;rangeMinorGridlineStroke&gt;
+                &lt;lineWidth&gt;0.5&lt;/lineWidth&gt;
+                &lt;endCap&gt;0&lt;/endCap&gt;
+                &lt;lineJoin&gt;2&lt;/lineJoin&gt;
+                &lt;miterLimit&gt;0.0&lt;/miterLimit&gt;
+                &lt;dashArray&gt;
+                    &lt;table&gt;
+                        &lt;records&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;dash&quot;&gt;2.0&lt;/value&gt;
+                            &lt;/record&gt;
+                        &lt;/records&gt;
+                    &lt;/table&gt;
+                &lt;/dashArray&gt;
+            &lt;/rangeMinorGridlineStroke&gt;
+            &lt;rangeMinorGridlinePaint&gt;
+                &lt;color&gt;#C0C0C0FF&lt;/color&gt;
+            &lt;/rangeMinorGridlinePaint&gt;
+            &lt;baseSeriesVisible&gt;1&lt;/baseSeriesVisible&gt;
+            &lt;baseSeriesVisibleInLegend&gt;1&lt;/baseSeriesVisibleInLegend&gt;
+            &lt;basePaint&gt;
+                &lt;color&gt;#445A6CFF&lt;/color&gt;
+            &lt;/basePaint&gt;
+            &lt;baseStroke&gt;
+                &lt;lineWidth&gt;1.5&lt;/lineWidth&gt;
+                &lt;lineJoin&gt;2&lt;/lineJoin&gt;
+                &lt;dashArray&gt;
+                    &lt;nullValue/&gt;
+                &lt;/dashArray&gt;
+            &lt;/baseStroke&gt;
+            &lt;baseShape&gt;
+                &lt;type&gt;2&lt;/type&gt;
+                &lt;x&gt;-2.0&lt;/x&gt;
+                &lt;y&gt;-2.0&lt;/y&gt;
+                &lt;width&gt;4.0&lt;/width&gt;
+                &lt;height&gt;4.0&lt;/height&gt;
+            &lt;/baseShape&gt;
+            &lt;baseItemLabelFont&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Tahoma&lt;/name&gt;
+                &lt;size&gt;12&lt;/size&gt;
+            &lt;/baseItemLabelFont&gt;
+            &lt;baseItemLabelPaint&gt;
+                &lt;color&gt;#000000FF&lt;/color&gt;
+            &lt;/baseItemLabelPaint&gt;
+            &lt;baseItemLabelPosition&gt;
+                &lt;negativeItemLabelPosition&gt;
+                    &lt;table&gt;
+                        &lt;records&gt;
+                            &lt;record&gt;
+                                &lt;value name=&quot;itemLabelAnchor&quot;&gt;outside6&lt;/value&gt;
+                                &lt;value name=&quot;textAnchor&quot;&gt;topCenter&lt;/value&gt;
+                            &lt;/record&gt;
+                        &lt;/records&gt;
+                    &lt;/table&gt;
+                &lt;/negativeItemLabelPosition&gt;
+            &lt;/baseItemLabelPosition&gt;
+            &lt;itemLabelAnchorOffset&gt;2.0&lt;/itemLabelAnchorOffset&gt;
+            &lt;baseLegendShape&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/baseLegendShape&gt;
+            &lt;baseLegendTextPaint&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/baseLegendTextPaint&gt;
+            &lt;baseOutlineStroke&gt;
+                &lt;dashArray&gt;
+                    &lt;nullValue/&gt;
+                &lt;/dashArray&gt;
+            &lt;/baseOutlineStroke&gt;
+            &lt;autoPopulateSeriesPaints&gt;1&lt;/autoPopulateSeriesPaints&gt;
+            &lt;baseToolTipGenerator&gt;
+                &lt;formatString&gt;{0}: ({1}, {2})&lt;/formatString&gt;
+                &lt;xFormatType&gt;1&lt;/xFormatType&gt;
+                &lt;xFormat&gt;M/d/yy h:mm a&lt;/xFormat&gt;
+            &lt;/baseToolTipGenerator&gt;
+            &lt;seriesRenderingOrder&gt;reverse&lt;/seriesRenderingOrder&gt;
+            &lt;legendItemToolTipGenerator&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/legendItemToolTipGenerator&gt;
+            &lt;XOffset&gt;12.0&lt;/XOffset&gt;
+            &lt;YOffset&gt;8.0&lt;/YOffset&gt;
+            &lt;wallPaint&gt;
+                &lt;color&gt;#DDDDDDFF&lt;/color&gt;
+            &lt;/wallPaint&gt;
+            &lt;precision&gt;5&lt;/precision&gt;
+            &lt;stepPoint&gt;1.0&lt;/stepPoint&gt;
+            &lt;baseLinesVisible&gt;1&lt;/baseLinesVisible&gt;
+            &lt;baseShapesVisible&gt;1&lt;/baseShapesVisible&gt;
+            &lt;baseShapesFilled&gt;1&lt;/baseShapesFilled&gt;
+            &lt;drawOutlines&gt;1&lt;/drawOutlines&gt;
+            &lt;legendLine&gt;
+                &lt;type&gt;4&lt;/type&gt;
+                &lt;x&gt;-7.0&lt;/x&gt;
+                &lt;y&gt;0.0&lt;/y&gt;
+                &lt;width&gt;7.0&lt;/width&gt;
+                &lt;height&gt;0.0&lt;/height&gt;
+            &lt;/legendLine&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+        &lt;/xyLineChart&gt;
+        &lt;panel resourceID=&quot;drPanel&quot;&gt;
+            &lt;opaque&gt;1&lt;/opaque&gt;
+            &lt;background&gt;#F2F2F2FF&lt;/background&gt;
+            &lt;border&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Inner&lt;/pos&gt;
+                    &lt;type&gt;line&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;0&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;0&lt;/right&gt;
+                    &lt;color&gt;#EDEDEDFF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+                &lt;record&gt;
+                    &lt;pos&gt;Outer&lt;/pos&gt;
+                    &lt;type&gt;none&lt;/type&gt;
+                    &lt;top&gt;1&lt;/top&gt;
+                    &lt;left&gt;1&lt;/left&gt;
+                    &lt;bottom&gt;1&lt;/bottom&gt;
+                    &lt;right&gt;1&lt;/right&gt;
+                    &lt;color&gt;#808080FF&lt;/color&gt;
+                    &lt;scolor&gt;#FFFFFFFF&lt;/scolor&gt;
+                    &lt;title/&gt;
+                    &lt;tcolor&gt;#000000FF&lt;/tcolor&gt;
+                    &lt;justification&gt;1&lt;/justification&gt;
+                &lt;/record&gt;
+            &lt;/border&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;gridy&gt;2&lt;/gridy&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+            &lt;weighty&gt;0.0&lt;/weighty&gt;
+        &lt;/panel&gt;
+        &lt;rangeSlider resourceID=&quot;dateRange&quot;&gt;
+            &lt;foreground&gt;#808080FF&lt;/foreground&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Calibri&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;rangeType&gt;1&lt;/rangeType&gt;
+            &lt;maximum&gt;100&lt;/maximum&gt;
+            &lt;minorTickSpacing&gt;5&lt;/minorTickSpacing&gt;
+            &lt;majorTickSpacing&gt;20&lt;/majorTickSpacing&gt;
+            &lt;paintTrack&gt;1&lt;/paintTrack&gt;
+            &lt;paintTicks&gt;1&lt;/paintTicks&gt;
+            &lt;paintLabels&gt;1&lt;/paintLabels&gt;
+            &lt;lowerValue&gt;20&lt;/lowerValue&gt;
+            &lt;upperValue&gt;50&lt;/upperValue&gt;
+            &lt;rangeVisible&gt;1&lt;/rangeVisible&gt;
+            &lt;rangeSelectionEnabled&gt;1&lt;/rangeSelectionEnabled&gt;
+            &lt;thumbShape&gt;rectangular&lt;/thumbShape&gt;
+            &lt;thumbDesign&gt;dark&lt;/thumbDesign&gt;
+            &lt;trackWidth&gt;medium&lt;/trackWidth&gt;
+            &lt;rangeColor&gt;#FBCB9CFF&lt;/rangeColor&gt;
+            &lt;minimumDate&gt;1970-01-11 00:00:00.000&lt;/minimumDate&gt;
+            &lt;maximumDate&gt;1970-01-12 00:00:00.000&lt;/maximumDate&gt;
+            &lt;minorDateTickSpacing&gt;3600000&lt;/minorDateTickSpacing&gt;
+            &lt;majorDateTickSpacing&gt;14400000&lt;/majorDateTickSpacing&gt;
+            &lt;lowerDate&gt;1970-01-11 05:00:00.000&lt;/lowerDate&gt;
+            &lt;upperDate&gt;1970-01-11 10:00:00.000&lt;/upperDate&gt;
+            &lt;insetsTop&gt;2&lt;/insetsTop&gt;
+            &lt;insetsBottom&gt;2&lt;/insetsBottom&gt;
+            &lt;insetsLeft&gt;2&lt;/insetsLeft&gt;
+            &lt;insetsRight&gt;2&lt;/insetsRight&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+        &lt;/rangeSlider&gt;
+    &lt;/view&gt;
+    &lt;bindings&gt;
+        &lt;binding activator=&quot;form/apply:click@&quot;
+            bindingId=&quot;6284139565735222272&quot; pattern=&quot;2&quot; target=&quot;form/historyChart:seriesProperties&quot;&gt;
+            &lt;expression&gt;{form/seriesProperties:dataTable}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;7752599671638313984&quot; pattern=&quot;3&quot; target=&quot;form/drPanel:visible&quot;&gt;
+            &lt;expression&gt;{form/mode:selectedItem} == 2&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;77222524719318016&quot; pattern=&quot;3&quot; target=&quot;form/zPanel:visible&quot;&gt;
+            &lt;expression&gt;{form/mode:selectedItem} !=0&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;2381808479582112768&quot; pattern=&quot;3&quot; target=&quot;form/seriesProperties:dataTable&quot;&gt;
+            &lt;expression&gt;{form/historyChart:seriesProperties}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;1377087045185422336&quot; pattern=&quot;3&quot; target=&quot;form/historyChart:includeRealtime&quot;&gt;
+            &lt;expression&gt;{form/mode:selectedItem} &amp;gt; 0&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;8537132999377403904&quot; pattern=&quot;3&quot; target=&quot;form/historyChart:timeUnit&quot;&gt;
+            &lt;expression&gt;{form/aggregation:selectedItem}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;6176731419159560192&quot; pattern=&quot;2&quot; target=&quot;form/1h:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==1 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} == 3600000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;3806647244069797888&quot; pattern=&quot;2&quot; target=&quot;form/6h:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==6 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} == 3600000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;1151663238047399936&quot; pattern=&quot;3&quot; target=&quot;form/1d:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==1 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} == 86400000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;6307205800549958656&quot; pattern=&quot;2&quot; target=&quot;form/3d:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==3 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} == 86400000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;1839606468854586368&quot; pattern=&quot;2&quot; target=&quot;form/5d:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==5 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} == 86400000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;5542576219904794624&quot; pattern=&quot;2&quot; target=&quot;form/1w:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==1 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} == 604800000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;7346294583531812864&quot; pattern=&quot;2&quot; target=&quot;form/2w:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==2 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} == 604800000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;9010683719381197824&quot; pattern=&quot;2&quot; target=&quot;form/1m:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==1 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} ==2592000000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;3311312712367011840&quot; pattern=&quot;2&quot; target=&quot;form/3m:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==3 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} ==2592000000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;7955045832858726400&quot; pattern=&quot;2&quot; target=&quot;form/6m:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==6 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} ==2592000000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;2745344124963271680&quot; pattern=&quot;2&quot; target=&quot;form/1y:border$bottom&quot;&gt;
+            &lt;expression&gt;{form/period:value$value}==1 &amp;amp;&amp;amp; {form/units:selectedItem$selectedItem} ==31536000000 ? 0 : 1 &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;3458763083793800192&quot; pattern=&quot;3&quot; target=&quot;form/dateRange:maximumDate&quot;&gt;
+            &lt;expression&gt;now()&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;5111491398136768512&quot; pattern=&quot;1&quot; target=&quot;form/dateRange:upperDate&quot;&gt;
+            &lt;expression&gt;now()&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;1169643178132197376&quot; pattern=&quot;1&quot; target=&quot;form/dateRange:lowerDate&quot;&gt;
+            &lt;expression&gt;dateAdd(now(), -8, &quot;h&quot;)&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;4550293902781130752&quot; pattern=&quot;2&quot; target=&quot;form/historyChart:baseSeriesVisibleInLegend&quot;&gt;
+            &lt;expression&gt;!{form/options:selected$selected}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;1814230686423042048&quot; pattern=&quot;3&quot; target=&quot;form/spPanel:visible&quot;&gt;
+            &lt;expression&gt;{form/options:selected$selected}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;7010273335485000704&quot; pattern=&quot;3&quot; target=&quot;form/historyChart:endDate$endDate&quot;&gt;
+            &lt;expression&gt;{form/dateRange:upperDate}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;6748944468375709696&quot; pattern=&quot;3&quot; target=&quot;form/historyChart:startDate$startDate&quot;&gt;
+            &lt;expression&gt;{form/dateRange:lowerDate}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;1619287497954906112&quot; pattern=&quot;3&quot; target=&quot;form/historyChart:enableTimeRange$enableTimeRange&quot;&gt;
+            &lt;expression&gt;{form/mode:selectedItem}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/1h:mouseClicked@&quot;
+            bindingId=&quot;8356756763051032576&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;1&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/6h:mouseClicked@&quot;
+            bindingId=&quot;847235831608377344&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;6&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/1d:mouseClicked@&quot;
+            bindingId=&quot;5341791570568359936&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;1&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/3d:mouseClicked@&quot;
+            bindingId=&quot;7958459429975116800&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;3&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/5d:mouseClicked@&quot;
+            bindingId=&quot;4990340684474360832&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;5&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/1w:mouseClicked@&quot;
+            bindingId=&quot;7028592619630251008&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;1&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/2w:mouseClicked@&quot;
+            bindingId=&quot;5069648902784257024&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;2&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/1m:mouseClicked@&quot;
+            bindingId=&quot;3871421093681154048&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;1&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/3m:mouseClicked@&quot;
+            bindingId=&quot;5818666719227038720&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;3&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/6m:mouseClicked@&quot;
+            bindingId=&quot;7780427874301279232&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;6&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/1y:mouseClicked@&quot;
+            bindingId=&quot;453431393352143872&quot; pattern=&quot;2&quot; target=&quot;form/period:value$value&quot;&gt;
+            &lt;expression&gt;1&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/1h:mouseClicked@&quot;
+            bindingId=&quot;799279876048683008&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;3600000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/6h:mouseClicked@&quot;
+            bindingId=&quot;4766025015374118912&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;3600000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/1d:mouseClicked@&quot;
+            bindingId=&quot;5400179833838734336&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;86400000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/3d:mouseClicked@&quot;
+            bindingId=&quot;5641151779817327616&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;86400000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/5d:mouseClicked@&quot;
+            bindingId=&quot;6616378055381829632&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;86400000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/1w:mouseClicked@&quot;
+            bindingId=&quot;8274418092249180160&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;604800000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/2w:mouseClicked@&quot;
+            bindingId=&quot;8876570583940891648&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;604800000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/1m:mouseClicked@&quot;
+            bindingId=&quot;5255885836456678400&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;2592000000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/3m:mouseClicked@&quot;
+            bindingId=&quot;6750606735081228288&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;2592000000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/6m:mouseClicked@&quot;
+            bindingId=&quot;4400152755639011328&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;2592000000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/1y:mouseClicked@&quot;
+            bindingId=&quot;3099954586049338368&quot; pattern=&quot;2&quot; target=&quot;form/units:selectedItem$selectedItem&quot;&gt;
+            &lt;expression&gt;31536000000&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;3044519075208517632&quot; pattern=&quot;3&quot; target=&quot;form/aggregation:selectedItem&quot;&gt;
+            &lt;expression&gt;select({form/aggregation:transitionTable}, &quot;aggregation&quot;, &quot;unit&quot;, {form/units:selectedItem})&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;8040412319318476800&quot; pattern=&quot;3&quot; target=&quot;form/dateRange:minimumDate&quot;&gt;
+            &lt;expression&gt;timestamp({form/dateRange:maximumDate} - {form/period:value} * {form/units:selectedItem})&lt;/expression&gt;
+            &lt;condition&gt;{form/period:value}&amp;gt;0&lt;/condition&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;5802281598155508736&quot; pattern=&quot;3&quot; target=&quot;form/historyChart:timeRange&quot;&gt;
+            &lt;expression&gt;{form/period:value} * {form/units:selectedItem}
+
+&lt;/expression&gt;
+            &lt;condition&gt;{form/period:value}&amp;gt;0&lt;/condition&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;8459907886720259072&quot; pattern=&quot;3&quot; target=&quot;form/period:enabled$enabled&quot;&gt;
+            &lt;expression&gt;{form/mode:selectedItem} !=0&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;4584588160397097984&quot; pattern=&quot;3&quot; target=&quot;form/units:enabled$enabled&quot;&gt;
+            &lt;expression&gt;{form/mode:selectedItem} !=0&lt;/expression&gt;
+        &lt;/binding&gt;
+    &lt;/bindings&gt;
+    &lt;scripts/&gt;
+&lt;/template&gt;
+</value>
+            <value name="validityExpression">{.:#type} == &apos;device.virtual&apos;</value>
+            <value name="defaultContext">users.admin.devices.virtual2</value>
+            <value name="resourceBundle">ExportContextPlugin</value>
+          </record>
+        </records>
+      </table>
+    </entry>
+  </properties>
+</properties>

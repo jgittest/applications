@@ -1,0 +1,567 @@
+<properties>
+  <properties class="linked-hash-map">
+    <entry>
+      <string>childInfo</string>
+      <table>
+        <format maxRecords="1" minRecords="1">
+          <fields>
+            <field description="Имя виджета" name="name" notReplicated="true" type="S">
+              <validators contentType="base64">HEweMSA1MB0cUh5cdyteXtCY0LzRjyDQvNC+0LbQtdGCINGB0L7QtNC10YDQttCw0YLRjCDRgtC+0LvRjNC60L4g0LvQsNGC0LjQvdGB0LrQuNC1INCx0YPQutCy0YssINGG0LjRhNGA0Ysg0Lgg0YHQuNC80LLQvtC70Ysg0L/QvtC00YfQtdGA0LrQuNCy0LDQvdC40Y8d</validators>
+              <help>Имя объекта и соответствующего контекста, необходимое для ссылки на данный контекст из других частей системы. Оно должно соответствовать соглашениям по именованию контекстов. ПРЕДУПРЕЖДЕНИЕ: изменение имени приведет к неработоспособности всех ссылок на объект.</help>
+              <defaultValue/>
+            </field>
+            <field description="Описание виджета" name="description" notReplicated="true" type="S">
+              <validators contentType="base64">HEweMCAxMDAdHFIeW15ccHtDbnRybH1dKl5e0J7Qv9C40YHQsNC90LjQtSDQvNC+0LbQtdGCINGB0L7QtNC10YDQttCw0YLRjCDRgtC+0LvRjNC60L4g0L/QtdGH0LDRgtC90YvQtSDRgdC40LzQstC+0LvRix0=</validators>
+              <help>Данное поле применяется для задания удобочитаемого для человека описания виджета.</help>
+              <defaultValue/>
+            </field>
+            <field description="Шаблон виджета" editor="text" name="template" type="S">
+              <editorOptions>xml</editorOptions>
+              <help>Данное поле содержит текст шаблона виджета в формате XML.</help>
+              <defaultValue>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;template&gt;
+    &lt;resources&gt;
+        &lt;resource id=&quot;&quot;/&gt;
+    &lt;/resources&gt;
+    &lt;view&gt;
+        &lt;root resourceID=&quot;&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+        &lt;/root&gt;
+    &lt;/view&gt;
+    &lt;bindings/&gt;
+    &lt;scripts/&gt;
+&lt;/template&gt;
+</defaultValue>
+            </field>
+            <field description="Тип" name="type" type="I">
+              <selectionValues>
+                <option description="Относительный">0</option>
+                <option description="Абсолютный">1</option>
+              </selectionValues>
+              <help>Данное поле определяет тип виджета, он может быть абсолютным и относительным. Абсолютные виджеты обычно обрабатывают и интегрируют данные, полученные из разных контекстов. Относительные виджеты предназначены для обработки данных из определенного контекста. Они служат для создания формы или пользовательского интерфейса, представляя данные устройства или системного ресурса. Относительные виджеты, обычно, запускаются из контекста, данные которого будут использоваться в виджете.</help>
+              <defaultValue>0</defaultValue>
+            </field>
+            <field description="Выражение пригодности" editor="expression" name="validityExpression" type="S">
+              <editorOptions contentType="base64">HEYeHBxjb250ZXh0HRxTHRxGHk4dHEEeGh0cRB7QmtC+0L3RgtC10LrRgdGCINC/0L4g0YPQvNC+0LvRh9Cw0L3QuNGOHR0cHHRhYmxlHRxUHRxGHk4dHEEeGh0cRB7QotCw0LHQu9C40YbQsCDQv9C+INGD0LzQvtC70YfQsNC90LjRjh0dHBxyZWZlcmVuY2VzHRxUHRxGHk4dHEEeHEYeHBxyZWZlcmVuY2UdHFMdHEEeHRxEHtCh0YHRi9C70LrQsB0dHBxkZXNjcmlwdGlvbh0cUx0cQR4dHEQe0J7Qv9C40YHQsNC90LjQtR0dHR0cRB7QodGB0YvQu9C60LgdHRwcZXhwZWN0ZWRSZXN1bHQdHFMdHEYeTh0cQR4aHRxEHtCS0L7Qt9Cy0YDQsNGJ0LDQtdC80L7QtSDQt9C90LDRh9C10L3QuNC1HR0cHGNvbnRleHREZXNjcmlwdGlvbh0cUx0cRh5OHRxBHhodHEQe0J7Qv9C40YHQsNC90LjQtSDQutC+0L3RgtC10LrRgdGC0LAg0L/QviDRg9C80L7Qu9GH0LDQvdC40Y4dHRwcdGFibGVEZXNjcmlwdGlvbh0cUx0cRh5OHRxBHhodHEQe0J7Qv9C40YHQsNC90LjQtSDRgtCw0LHQu9C40YbRiyDQv9C+INGD0LzQvtC70YfQsNC90LjRjh0dHE0eMR0cWB4xHR0cUh4cGh0cGh0cHFIeHC46I3R5cGUdHNCi0LjQvyDQutC+0L3RgtC10LrRgdGC0LAdHRxSHhwuOh0c0J/Rg9GC0Ywg0LrQvtC90YLQtdC60YHRgtCwHR0dHBodHBodHBodHQ==</editorOptions>
+              <help>Данное выражение определяет, к какому контексту (контекстам) будет прикреплен виджет.</help>
+              <group>Пригодность</group>
+              <defaultValue/>
+            </field>
+            <field description="Правила обновления пригодности" name="validityListeners" type="T">
+              <help>Список масок контекста и имен событий. Если событие, заданное в поле &apos;Событие&apos; данной таблицы, происходит в любом контексте, соответствующем маске, заданной в поле &apos;Маска контекста&apos; той же записи, выражение пригодности будет заново рассчитано для данного контекста. Это позволяет сделать виджет подходящим/неподходящим для определенного контекста в случае возникновения в нем изменений.</help>
+              <group>Пригодность</group>
+              <defaultValue>
+                <table>
+                  <format maxRecords="2147483647">
+                    <fields>
+                      <field description="Маска контекстов" editor="contextmask" icon="fi_context" keyfield="true" name="mask" type="S">
+                        <help>Маска контекстов, от которых нужно отслеживать события&#xd;
+</help>
+                        <defaultValue/>
+                      </field>
+                      <field description="Событие" extendableSelectionValues="true" icon="fi_event" keyfield="true" name="event" type="S">
+                        <help>Имя отслеживаемого события</help>
+                        <defaultValue/>
+                      </field>
+                      <field description="Выражение цели" editor="expression" icon="fi_expression" name="expression" nullable="true" type="S">
+                        <help>Eсли оно определено, то указывает на контекст, чью пригодность нужно проверить. Если &apos;Выражение цели&apos; не определено (что бывает в большинстве случаев), система проверяет пригодность контекста, в котором случилось &apos;Событие&apos;.</help>
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                    </fields>
+                    <bindings>
+                      <binding>
+                        <reference>event#choices</reference>
+                        <expression>{utilities:eventsByMask(&apos;{mask}&apos;)}</expression>
+                      </binding>
+                    </bindings>
+                    <validators contentType="base64">HEseHQ==</validators>
+                  </format>
+                </table>
+              </defaultValue>
+            </field>
+            <field description="Определять пригодность для удаленных контекстов" name="allowValidityForRemoteContexts" type="B">
+              <help>При включенном флажке разрешено прикрепление к удаленным контекстам, подключеным по распределенной архитектуре</help>
+              <group>Пригодность</group>
+              <defaultValue>0</defaultValue>
+            </field>
+            <field description="Контекст по умолчанию" editor="context" name="defaultContext" nullable="true" type="S">
+              <help>Контекст по умолчанию, используемый при редактировании шаблона относительного виджета в GUI Builder или его запуске без использования действия &quot;Запустить виджет&quot; в устройстве или системном ресурсе. Его значение автоматически устанавливается в пути к контексту, для которого был создан виджет. Обычно нет необходимости его редактировать, за исключением удаления контекста.</help>
+              <group>Пригодность</group>
+              <defaultValue>
+                <nullValue/>
+              </defaultValue>
+            </field>
+            <field description="Расположение по умолчанию" name="defaultLocation" type="T">
+              <help>Расположение окна виджета используется, когда виджет запускается вручную, т.е. без использования Автозапуска, Избранного и других средств.</help>
+              <group>Расположение окна</group>
+              <defaultValue>
+                <table>
+                  <format maxRecords="1" minRecords="1">
+                    <fields>
+                      <field description="Состояние" name="state" type="I">
+                        <selectionValues>
+                          <option description="Пристыкованное">0</option>
+                          <option description="Плавающее">1</option>
+                          <option description="На боковой панели">2</option>
+                        </selectionValues>
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field description="Сторона" name="side" type="I">
+                        <selectionValues>
+                          <option description="Сверху">0</option>
+                          <option description="Слева">1</option>
+                          <option description="Снизу">2</option>
+                          <option description="Справа">3</option>
+                        </selectionValues>
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field description="Индекс" name="index" type="I">
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field description="Ширина" name="width" nullable="true" type="I">
+                        <validators contentType="base64">HEweMSAyMTQ3NDgzNjQ3HQ==</validators>
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field description="Высота" name="height" nullable="true" type="I">
+                        <validators contentType="base64">HEweMSAyMTQ3NDgzNjQ3HQ==</validators>
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field description="Можно изменять размер" name="resizable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Окно можно закрыть" name="closable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Можно перестыковывать" name="movable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Можно включить плавающий режим" name="floatable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Можно раскрыть во весь экран" name="maximizable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Можно поместить в боковую панель" name="autohidable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Показывать область заголовка" name="showTitleBar" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field advanced="true" description="Ключ" name="key" type="S">
+                        <defaultValue/>
+                      </field>
+                      <field advanced="true" hidden="true" name="elementIndex" nullable="true" type="I">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                    </fields>
+                    <bindings>
+                      <binding>
+                        <reference>side#enabled</reference>
+                        <expression>{state} != 1</expression>
+                      </binding>
+                      <binding>
+                        <reference>floatable#enabled</reference>
+                        <expression>{movable} &amp;&amp; {state} != 1</expression>
+                      </binding>
+                      <binding>
+                        <reference>maximizable#enabled</reference>
+                        <expression>{movable}</expression>
+                      </binding>
+                      <binding>
+                        <reference>autohidable#enabled</reference>
+                        <expression>{movable}</expression>
+                      </binding>
+                    </bindings>
+                  </format>
+                  <records>
+                    <record>
+                      <value name="state">1</value>
+                      <value name="side">3</value>
+                    </record>
+                  </records>
+                </table>
+              </defaultValue>
+            </field>
+            <field description="Инструментальная панель" name="defaultDashboard" type="T">
+              <help>Данная настройка позволяет сконфигурировать запуск виджета как инструментальной панели.</help>
+              <group>Расположение окна</group>
+              <defaultValue>
+                <table>
+                  <format maxRecords="1" minRecords="1">
+                    <fields>
+                      <field description="Имя" name="name" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field description="Описание" name="description" nullable="true" type="S">
+                        <validators contentType="base64">HEweMCAxMDAdHFIeW15ccHtDbnRybH1dKl5e0J7Qv9C40YHQsNC90LjQtSDQvNC+0LbQtdGCINGB0L7QtNC10YDQttCw0YLRjCDRgtC+0LvRjNC60L4g0L/QtdGH0LDRgtC90YvQtSDRgdC40LzQstC+0LvRix0=</validators>
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field description="Компоновка" name="layout" type="I">
+                        <selectionValues>
+                          <option description="Плавающие окна">0</option>
+                          <option description="С прокруткой">1</option>
+                          <option description="Сетка">2</option>
+                        </selectionValues>
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field description="Колонки" name="columns" type="I">
+                        <defaultValue>3</defaultValue>
+                      </field>
+                      <field description="Можно закрыть" name="closable" type="B">
+                        <defaultValue>1</defaultValue>
+                      </field>
+                      <field description="Закрывать панель при повторном открытии" name="closeDashboardOnReopen" type="B">
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field hidden="true" name="cleanup" type="B">
+                        <defaultValue>0</defaultValue>
+                      </field>
+                      <field description="Контекст хранилища" name="storageContext" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field hidden="true" name="storageClass" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field hidden="true" name="storageSessionId" nullable="true" type="L">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field hidden="true" name="defaultEvent" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field name="dashboardContext" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field name="elementId" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                      <field name="parentElementId" nullable="true" type="S">
+                        <defaultValue>
+                          <nullValue/>
+                        </defaultValue>
+                      </field>
+                    </fields>
+                  </format>
+                  <records>
+                    <record/>
+                  </records>
+                </table>
+              </defaultValue>
+            </field>
+            <field hidden="true" name="resourceBundle" nullable="true" readonly="true" type="S">
+              <defaultValue>
+                <nullValue/>
+              </defaultValue>
+            </field>
+          </fields>
+          <bindings>
+            <binding>
+              <reference>validityExpression#hidden</reference>
+              <expression>{type} == 1</expression>
+            </binding>
+            <binding>
+              <reference>validityListeners#hidden</reference>
+              <expression>{type} == 1</expression>
+            </binding>
+            <binding>
+              <reference>allowValidityForRemoteContexts#hidden</reference>
+              <expression>{type} == 1</expression>
+            </binding>
+            <binding>
+              <reference>defaultContext#hidden</reference>
+              <expression>{type} == 1</expression>
+            </binding>
+            <binding>
+              <reference>validityExpression#options</reference>
+              <expression>expressionEditorOptions({type} == 0 ? {defaultContext} : {.:})</expression>
+            </binding>
+          </bindings>
+        </format>
+        <records>
+          <record>
+            <value name="name">slider</value>
+            <value name="description">slider</value>
+            <value name="template">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;template&gt;
+    &lt;resources&gt;
+        &lt;resource id=&quot;label1&quot; parent=&quot;panel2&quot;/&gt;
+        &lt;resource id=&quot;label2&quot; parent=&quot;panel2&quot;/&gt;
+        &lt;resource id=&quot;panel2&quot; parent=&quot;panel1&quot;/&gt;
+        &lt;resource id=&quot;rangeSlider1&quot; parent=&quot;panel3&quot;/&gt;
+        &lt;resource id=&quot;button1&quot; parent=&quot;panel4&quot;/&gt;
+        &lt;resource id=&quot;button2&quot; parent=&quot;panel4&quot;/&gt;
+        &lt;resource id=&quot;panel4&quot; parent=&quot;panel3&quot;/&gt;
+        &lt;resource id=&quot;rangeSlider2&quot; parent=&quot;panel5&quot;/&gt;
+        &lt;resource id=&quot;button3&quot; parent=&quot;panel5&quot;/&gt;
+        &lt;resource id=&quot;panel5&quot; parent=&quot;panel3&quot;/&gt;
+        &lt;resource id=&quot;panel3&quot; parent=&quot;panel1&quot;/&gt;
+        &lt;resource id=&quot;panel1&quot; parent=&quot;&quot;/&gt;
+        &lt;resource id=&quot;&quot;/&gt;
+    &lt;/resources&gt;
+    &lt;view&gt;
+        &lt;root resourceID=&quot;&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+        &lt;/root&gt;
+        &lt;panel resourceID=&quot;panel1&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+        &lt;/panel&gt;
+        &lt;panel resourceID=&quot;panel2&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;gridy&gt;1&lt;/gridy&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+        &lt;/panel&gt;
+        &lt;label resourceID=&quot;label1&quot;&gt;
+            &lt;width&gt;174&lt;/width&gt;
+            &lt;height&gt;33&lt;/height&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Tahoma&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;label1&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+        &lt;/label&gt;
+        &lt;label resourceID=&quot;label2&quot;&gt;
+            &lt;width&gt;188&lt;/width&gt;
+            &lt;height&gt;33&lt;/height&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Tahoma&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;label2&lt;/text&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;1&lt;/gridx&gt;
+        &lt;/label&gt;
+        &lt;panel resourceID=&quot;panel3&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+        &lt;/panel&gt;
+        &lt;rangeSlider resourceID=&quot;rangeSlider1&quot;&gt;
+            &lt;width&gt;205&lt;/width&gt;
+            &lt;height&gt;51&lt;/height&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Tahoma&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;rangeType&gt;1&lt;/rangeType&gt;
+            &lt;maximum&gt;100&lt;/maximum&gt;
+            &lt;minorTickSpacing&gt;5&lt;/minorTickSpacing&gt;
+            &lt;majorTickSpacing&gt;20&lt;/majorTickSpacing&gt;
+            &lt;paintTrack&gt;1&lt;/paintTrack&gt;
+            &lt;paintTicks&gt;1&lt;/paintTicks&gt;
+            &lt;paintLabels&gt;1&lt;/paintLabels&gt;
+            &lt;lowerValue&gt;20&lt;/lowerValue&gt;
+            &lt;upperValue&gt;50&lt;/upperValue&gt;
+            &lt;rangeVisible&gt;1&lt;/rangeVisible&gt;
+            &lt;rangeSelectionEnabled&gt;1&lt;/rangeSelectionEnabled&gt;
+            &lt;thumbShape&gt;drop&lt;/thumbShape&gt;
+            &lt;thumbDesign&gt;dark&lt;/thumbDesign&gt;
+            &lt;trackWidth&gt;thick&lt;/trackWidth&gt;
+            &lt;rangeColor&gt;#458BB6FF&lt;/rangeColor&gt;
+            &lt;minimumDate&gt;2019-03-03 22:00:00.000&lt;/minimumDate&gt;
+            &lt;maximumDate&gt;2019-03-04 07:00:00.000&lt;/maximumDate&gt;
+            &lt;minorDateTickSpacing&gt;1620000&lt;/minorDateTickSpacing&gt;
+            &lt;majorDateTickSpacing&gt;6480000&lt;/majorDateTickSpacing&gt;
+            &lt;lowerDate&gt;2019-03-04 01:00:00.000&lt;/lowerDate&gt;
+            &lt;upperDate&gt;2019-03-04 04:00:00.000&lt;/upperDate&gt;
+            &lt;liveChanges&gt;1&lt;/liveChanges&gt;
+            &lt;gridy&gt;1&lt;/gridy&gt;
+        &lt;/rangeSlider&gt;
+        &lt;panel resourceID=&quot;panel4&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+        &lt;/panel&gt;
+        &lt;button resourceID=&quot;button1&quot;&gt;
+            &lt;width&gt;71&lt;/width&gt;
+            &lt;height&gt;24&lt;/height&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Tahoma&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;button1&lt;/text&gt;
+            &lt;margin&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/margin&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+        &lt;/button&gt;
+        &lt;button resourceID=&quot;button2&quot;&gt;
+            &lt;width&gt;71&lt;/width&gt;
+            &lt;height&gt;23&lt;/height&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Tahoma&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;button2&lt;/text&gt;
+            &lt;margin&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/margin&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridy&gt;1&lt;/gridy&gt;
+        &lt;/button&gt;
+        &lt;panel resourceID=&quot;panel5&quot;&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;gridy&gt;2&lt;/gridy&gt;
+            &lt;fill&gt;1&lt;/fill&gt;
+        &lt;/panel&gt;
+        &lt;rangeSlider resourceID=&quot;rangeSlider2&quot;&gt;
+            &lt;width&gt;200&lt;/width&gt;
+            &lt;height&gt;42&lt;/height&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Tahoma&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;maximum&gt;100&lt;/maximum&gt;
+            &lt;minorTickSpacing&gt;5&lt;/minorTickSpacing&gt;
+            &lt;majorTickSpacing&gt;20&lt;/majorTickSpacing&gt;
+            &lt;paintTrack&gt;1&lt;/paintTrack&gt;
+            &lt;paintTicks&gt;1&lt;/paintTicks&gt;
+            &lt;paintLabels&gt;1&lt;/paintLabels&gt;
+            &lt;lowerValue&gt;20&lt;/lowerValue&gt;
+            &lt;upperValue&gt;50&lt;/upperValue&gt;
+            &lt;rangeVisible&gt;1&lt;/rangeVisible&gt;
+            &lt;rangeSelectionEnabled&gt;1&lt;/rangeSelectionEnabled&gt;
+            &lt;thumbShape&gt;drop&lt;/thumbShape&gt;
+            &lt;thumbDesign&gt;dark&lt;/thumbDesign&gt;
+            &lt;trackWidth&gt;thick&lt;/trackWidth&gt;
+            &lt;rangeColor&gt;#458BB6FF&lt;/rangeColor&gt;
+            &lt;minimumDate&gt;1970-01-11 00:00:00.000&lt;/minimumDate&gt;
+            &lt;maximumDate&gt;1970-01-12 00:00:00.000&lt;/maximumDate&gt;
+            &lt;minorDateTickSpacing&gt;3600000&lt;/minorDateTickSpacing&gt;
+            &lt;majorDateTickSpacing&gt;14400000&lt;/majorDateTickSpacing&gt;
+            &lt;lowerDate&gt;1970-01-11 05:00:00.000&lt;/lowerDate&gt;
+            &lt;upperDate&gt;1970-01-11 10:00:00.000&lt;/upperDate&gt;
+            &lt;liveChanges&gt;1&lt;/liveChanges&gt;
+        &lt;/rangeSlider&gt;
+        &lt;button resourceID=&quot;button3&quot;&gt;
+            &lt;width&gt;71&lt;/width&gt;
+            &lt;height&gt;23&lt;/height&gt;
+            &lt;font&gt;
+                &lt;custom&gt;1&lt;/custom&gt;
+                &lt;name&gt;Tahoma&lt;/name&gt;
+                &lt;size&gt;11&lt;/size&gt;
+            &lt;/font&gt;
+            &lt;cursor contentType=&quot;base64&quot;&gt;Gg==&lt;/cursor&gt;
+            &lt;text&gt;+&lt;/text&gt;
+            &lt;margin&gt;
+                &lt;isNull&gt;1&lt;/isNull&gt;
+            &lt;/margin&gt;
+            &lt;iconTextGap&gt;4&lt;/iconTextGap&gt;
+            &lt;gridx&gt;1&lt;/gridx&gt;
+        &lt;/button&gt;
+    &lt;/view&gt;
+    &lt;bindings&gt;
+        &lt;binding bindingId=&quot;3077665834098908160&quot; pattern=&quot;3&quot; target=&quot;form/label1:text$text&quot;&gt;
+            &lt;expression&gt;{form/rangeSlider1:lowerDate$lowerDate}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding bindingId=&quot;1131591465923593216&quot; pattern=&quot;3&quot; target=&quot;form/label2:text$text&quot;&gt;
+            &lt;expression&gt;{form/rangeSlider1:upperDate$upperDate}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/button1:mouseClicked@&quot;
+            bindingId=&quot;6135365999234351104&quot; pattern=&quot;2&quot; target=&quot;form/rangeSlider1:minimumDate$minimumDate&quot;&gt;
+            &lt;expression&gt;timestamp({form/rangeSlider1:minimumDate$minimumDate} -({form/rangeSlider1:upperDate$upperDate}-{form/rangeSlider1:lowerDate$lowerDate})) &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/button1:mouseClicked@&quot;
+            bindingId=&quot;6752402595000706048&quot; pattern=&quot;2&quot; target=&quot;form/rangeSlider1:maximumDate$maximumDate&quot;&gt;
+            &lt;expression&gt;timestamp({form/rangeSlider1:maximumDate$maximumDate} +({form/rangeSlider1:upperDate$upperDate}-{form/rangeSlider1:lowerDate$lowerDate})) &lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/button2:mouseClicked@&quot;
+            bindingId=&quot;1924409376450257920&quot; pattern=&quot;2&quot; target=&quot;form/rangeSlider1:minimumDate$minimumDate&quot;&gt;
+            &lt;expression&gt;{form/rangeSlider1:lowerDate$lowerDate}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/button2:mouseClicked@&quot;
+            bindingId=&quot;5441458426513503232&quot; pattern=&quot;2&quot; target=&quot;form/rangeSlider1:maximumDate$maximumDate&quot;&gt;
+            &lt;expression&gt;{form/rangeSlider1:upperDate$upperDate}&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/button3:mouseClicked@&quot;
+            bindingId=&quot;6592915670662456320&quot; pattern=&quot;2&quot; target=&quot;form/rangeSlider2:lowerValue$lowerValue&quot;&gt;
+            &lt;expression&gt;{form/rangeSlider2:lowerValue$lowerValue} - 1&lt;/expression&gt;
+        &lt;/binding&gt;
+        &lt;binding activator=&quot;form/button3:mouseClicked@&quot;
+            bindingId=&quot;5095892082268062720&quot; pattern=&quot;2&quot; target=&quot;form/rangeSlider2:upperValue$upperValue&quot;&gt;
+            &lt;expression&gt;{form/rangeSlider2:upperValue$upperValue} +1&lt;/expression&gt;
+        &lt;/binding&gt;
+    &lt;/bindings&gt;
+    &lt;scripts/&gt;
+&lt;/template&gt;
+</value>
+            <value name="type">1</value>
+            <value name="validityExpression">{.:#type} == &apos;root&apos;</value>
+            <value name="validityListeners">
+              <table>
+                <format maxRecords="2147483647">
+                  <fields>
+                    <field description="Маска контекстов" editor="contextmask" icon="fi_context" keyfield="true" name="mask" type="S">
+                      <help>Маска контекстов, от которых нужно отслеживать события&#xd;
+</help>
+                      <defaultValue/>
+                    </field>
+                    <field description="Событие" extendableSelectionValues="true" icon="fi_event" keyfield="true" name="event" type="S">
+                      <help>Имя отслеживаемого события</help>
+                      <defaultValue/>
+                    </field>
+                    <field description="Выражение цели" editor="expression" icon="fi_expression" name="expression" nullable="true" type="S">
+                      <help>Eсли оно определено, то указывает на контекст, чью пригодность нужно проверить. Если &apos;Выражение цели&apos; не определено (что бывает в большинстве случаев), система проверяет пригодность контекста, в котором случилось &apos;Событие&apos;.</help>
+                      <defaultValue>
+                        <nullValue/>
+                      </defaultValue>
+                    </field>
+                  </fields>
+                  <bindings>
+                    <binding>
+                      <reference>event#choices</reference>
+                      <expression>{utilities:eventsByMask(&apos;{mask}&apos;)}</expression>
+                    </binding>
+                  </bindings>
+                  <validators contentType="base64">HEseHQ==</validators>
+                </format>
+                <records>
+                  <record>
+                    <value name="mask">users.*.devices.*</value>
+                    <value name="event">infoChanged</value>
+                  </record>
+                </records>
+              </table>
+            </value>
+            <value name="defaultContext"/>
+            <value name="resourceBundle">ExportContextPlugin</value>
+          </record>
+        </records>
+      </table>
+    </entry>
+  </properties>
+</properties>
