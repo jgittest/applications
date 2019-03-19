@@ -10,7 +10,7 @@
               <help>Имя объекта и соответствующего контекста, необходимое для ссылки на данный контекст из других частей системы. Оно должно соответствовать соглашениям по именованию контекстов. ПРЕДУПРЕЖДЕНИЕ: изменение имени приведет к неработоспособности всех ссылок на объект.</help>
               <defaultValue/>
             </field>
-            <field description="Описание виджета" name="description" notReplicated="true" type="S">
+            <field description="Widget Description" name="description" notReplicated="true" type="S">
               <validators contentType="base64">HEweMCAxMDAdHFIeW15ccHtDbnRybH1dKl5e0J7Qv9C40YHQsNC90LjQtSDQvNC+0LbQtdGCINGB0L7QtNC10YDQttCw0YLRjCDRgtC+0LvRjNC60L4g0L/QtdGH0LDRgtC90YvQtSDRgdC40LzQstC+0LvRix0=</validators>
               <help>Данное поле применяется для задания удобочитаемого для человека описания виджета.</help>
               <defaultValue/>
